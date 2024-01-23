@@ -19,7 +19,6 @@ const App = () => {
         { path: "signin", element: <SigninPage /> },
       ]
     },
-    
   ])
 
   return (
