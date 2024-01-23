@@ -70,7 +70,7 @@ const SignupPage = () => {
   let Input = "w-80 border border-solid rounded-md p-2";
 
   return (
-    <div className="w-full mt-40 flex flex-col items-center">
+    <div className="w-full mt-40 mb-16 flex flex-col items-center">
       <form onSubmit={onSubmit} className={AuthForm}>
         <div className="flex items-center justify-center gap-3 mt-4">
           <img src="./logo.jpg" alt="동아리 로고" className="w-16 rounded-full" />

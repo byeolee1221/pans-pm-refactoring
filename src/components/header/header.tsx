@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
+import Contact from "../contact/contact";
 
 const HeaderPage = () => {
   const user = auth.currentUser;
@@ -27,14 +28,13 @@ const HeaderPage = () => {
           </Link>
           <Link to="/about" className={navBarMenuStyle}>동아리 소개</Link>
           <Link to="/register" className={navBarMenuStyle}>동아리 가입신청</Link>
-          <Link to="https://cafe.naver.com/moksinlove" target="_blank" rel="noopener noreferrer" className={navBarMenuStyle}>
-            네이버 카페
-          </Link>
+          <Link to="/panstalk" className={navBarMenuStyle}>판스TALK</Link>
         </div>
         <div className="flex items-center gap-10">
           {user ? <p className="text-lg font-bold">{user.displayName}님 안녕하세요😊</p> : <Link to="/signup" className={navBarMenuStyle}>회원가입</Link>}
+          {user ? <Link to="/mypage" className={navBarMenuStyle}>마이페이지</Link> : null}
           {user ? <button onClick={onClick} className={navBarMenuStyle}>로그아웃</button> : <Link to="/signin" className={navBarMenuStyle}>로그인</Link>}
-          <button className="bg-rose-600 font-bold text-lg text-white rounded-md px-4 py-2">동아리 문의</button>
+          <Contact />
         </div>
       </nav>
     </header>  

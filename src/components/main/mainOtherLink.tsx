@@ -14,6 +14,9 @@ const MainOtherLink = () => {
         <Link to="https://www.youtube.com/@pans_pm" target="_blank" rel="noopener noreferrer">
           <img src="./youtube.png" alt="유튜브 로고" />
         </Link>
+        <Link to="https://cafe.naver.com/moksinlove" target="_blank" rel="noopener noreferrer">
+          <img src="./naver.png" alt="네이버 로고" className="w-10" />
+        </Link>
       </div>
     </div>  
   );
