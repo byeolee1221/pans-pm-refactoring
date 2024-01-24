@@ -32,6 +32,7 @@ const SigninPage = () => {
 
     try {
       setLoading(true);
+
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
     } catch (e) {

@@ -10,7 +10,7 @@ const Mypage = () => {
         <p className="text-white text-md sm:text-lg md:text-lg z-10">개인정보 관리는 여기서 해주세요!</p>
       </div>
       <div className="w-full">
-        <h2 className="text-center text-2xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-20 mb-16">마이페이지</h2>
+        <h2 className="text-center text-2xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-20 mb-16">계정 관리</h2>
         <div className="w-[34rem] m-auto mb-32">
           <UserInfo />
         </div>

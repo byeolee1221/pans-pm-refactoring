@@ -31,6 +31,7 @@ const ChangeNickName = () => {
 
     if (docRef.id) {
       alert("이미 존재하는 닉네임입니다.");
+      return;
     };
 
     try {
@@ -59,7 +60,7 @@ const ChangeNickName = () => {
           </CardHeader>
           <CardContent className="space-y-2">
             <form onSubmit={onSubmitNickName} className="space-y-3">
-              <Label htmlFor="idChange">닉네임 변경 (현재 닉네임: {user?.displayName})</Label>
+              <Label htmlFor="idChange">새 닉네임 (현재 닉네임: {user?.displayName})</Label>
               <Input onChange={onChangeNickName} value={nickName} id="idChange" type="text" name="id" />
               <Button type="submit" variant="outline">{isLoading ? "변경중..." : "변경하기"}</Button>
             </form>
