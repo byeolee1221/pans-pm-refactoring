@@ -2,8 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthForm, Error, FormItem, SubmitBtn } from "../components/styleShare";
 import { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { FirebaseError } from "firebase/app";
+import { addDoc, collection} from "firebase/firestore";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const SignupPage = () => {
   const [affiliation, setAffiliation] = useState("");
   const [ordinal, setOrdinal] = useState("");
   const [name, setName] = useState("");
-  const [id, setId] = useState("");
+  const [nickName, setNickName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -28,8 +29,8 @@ const SignupPage = () => {
       setOrdinal(value);
     } else if (name === "name") {
       setName(value);
-    } else if (name === "id") {
-      setId(value);
+    } else if (name === "nickName") {
+      setNickName(value);  
     } else if (name === "password") {
       setPassword(value);
     } else if (name === "email") {
@@ -40,20 +41,27 @@ const SignupPage = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    if (isLoading || affiliation === "" || name === "" || id === "" || password === "" || email === "") {
+    if (isLoading || affiliation === "" || name === "" || nickName === "" || password === "" || email === "") {
       return;
     };
 
     try {
       setLoading(true);
+
       const credentials = await createUserWithEmailAndPassword(auth, email, password);
       console.log(credentials.user);
 
       await updateProfile(credentials.user, {
-        displayName: id
+        displayName: nickName
       });
 
-      navigate("/");
+      await addDoc(collection(db, "users"), {
+        nickName,
+        name,
+        createdAt: Date.now()
+      });
+
+      navigate("/");      
     } catch (e) {
       if (e instanceof FirebaseError) {
         if (e.code === "auth/email-already-in-use") {
@@ -61,7 +69,7 @@ const SignupPage = () => {
         } else if (e.code === "auth/weak-password") {
           setError("비밀번호는 6자 이상이어야 합니다.");
         };
-      }
+      } 
     } finally {
       setLoading(false);
     }
@@ -97,9 +105,9 @@ const SignupPage = () => {
           <label htmlFor="name" className="text-lg">성명</label>
           <input onChange={onChange} className={Input} type="text" value={name} name="name" id="name" required />
         </div>
-        <div className="flex items-center gap-10 justify-center mt-4">
-          <label htmlFor="id" className="text-lg">아이디</label>
-          <input onChange={onChange} className={Input} type="text" value={id} name="id" id="id" required />
+        <div className="flex items-center justify-center gap-10 mt-4">
+          <label htmlFor="nickName" className="text-lg">닉네임</label>
+          <input onChange={onChange} className={Input} type="text" value={nickName} name="nickName" id="nickName" required />
         </div>
         <div className="flex items-center gap-6 justify-center mt-4">
           <label htmlFor="password" className="text-lg">비밀번호</label>
