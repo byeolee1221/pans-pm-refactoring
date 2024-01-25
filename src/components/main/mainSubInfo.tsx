@@ -1,11 +1,11 @@
 const MainSubInfo = () => {
   let itemBoxStyle = "flex flex-col items-center gap-y-4";
-  let itemDiscriptionStyle = "text-gray-500";
+  let itemDiscriptionStyle = "text-gray-500 text-center";
 
   return (
     <div className="w-full">
-    <h1 className="text-center text-2xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-36 mb-12">이런 분은 꼭 와주세요!</h1>
-    <div className="grid grid-rows-2 grid-cols-3 w-2/5 m-auto items-center justify-items-center mb-24 gap-y-10">
+    <h1 className="text-center text-3xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-20 md:mt-36 mb-12">이런 분은 꼭 와주세요!</h1>
+    <div className="grid grid-rows-2 grid-cols-3 w-4/5 md:w-2/5 m-auto items-center justify-items-center mb-24 gap-y-10 gap-x-10 ">
       <div className={itemBoxStyle}>
         <img src="./info2_1.png" alt="동아리에 딱 맞는 특성1" />
         <p className={itemDiscriptionStyle}>대인관계 좋으신 분</p>
@@ -20,7 +20,7 @@ const MainSubInfo = () => {
       </div>
       <div className={itemBoxStyle}>
         <img src="./info2_4.png" alt="동아리에 딱 맞는 특성4" />
-        <p className="text-gray-500 text-center">악기를 다뤄봤거나<br /> 다루고싶은 분</p>
+        <p className="text-gray-500 text-center">악기를 다루고싶은 분</p>
       </div>
       <div className={itemBoxStyle}>
         <img src="./info2_5.png" alt="동아리에 딱 맞는 특성5" />

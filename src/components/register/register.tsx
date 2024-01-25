@@ -99,8 +99,8 @@ const Register = () => {
           <p className="text-white text-md sm:text-lg md:text-lg z-10">제출하시면 현 회장 또는 부회장이 며칠 내 연락드리겠습니다.</p>
         </div>
         <div className="w-full">
-          <h2 className="text-center text-2xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-20 mb-10">동아리 가입원서</h2>
-          <form onSubmit={onSubmit} className="w-[32rem] h-auto m-auto flex flex-col gap-3 items-center border-2 border-solid rounded-lg mb-16 pb-8">
+          <h2 className="text-center text-3xl md:text-4xl lg:text-5xl space-y-5 font-bold mt-20 mb-10">동아리 가입원서</h2>
+          <form onSubmit={onSubmit} className="w-full md:w-[32rem] h-auto m-auto flex flex-col gap-3 items-center border-2 border-solid rounded-lg mb-16 pb-8">
             <div className="flex items-center gap-3 mt-4">
               <img src="./logo.jpg" alt="동아리 로고" className="w-16 rounded-full" />
               <p className="text-4xl font-bold">PAN'S PM</p>

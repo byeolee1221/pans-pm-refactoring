@@ -66,7 +66,7 @@ const PanstalkForm = () => {
 
   return (
     <div className="mt-32 w-full flex flex-col items-center m-auto">
-      {user ? <form onSubmit={onSubmit} className="w-[35rem] h-auto flex flex-col mt-7 pb-10 gap-4">
+      {user ? <form onSubmit={onSubmit} className="w-full md:w-[35rem] h-auto flex flex-col mt-7 pb-10 gap-4">
         <textarea onChange={onChange} className="resize-none p-4 border-2 border-solid rounded-lg" value={post} rows={5} maxLength={200} placeholder="오늘은 어떤 하루였나요?" required />
         <label className={Label} htmlFor="file">{file ? "사진 추가됨 ✔" : "사진 추가하기"}</label>
         <input onChange={onFileChange} className="hidden" type="file" id="file" accept="image/*" />

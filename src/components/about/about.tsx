@@ -10,8 +10,8 @@ const About = () => {
         <p className="text-white text-md sm:text-lg md:text-lg z-10">Pan's PM은 조선대학교의 유서깊은 밴드동아리입니다.</p>
       </div>
       <div className="w-full">
-        <h2 className="text-center text-2xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-20 mb-16">동아리를 소개합니다!</h2>
-        <div className="grid grid-rows-2 grid-cols-2 gap-y-24 items-center justify-items-center w-4/5 m-auto mb-24">
+        <h2 className="text-center text-3xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-20 mb-16">동아리를 소개합니다!</h2>
+        <div className="grid grid-rows-1 grid-cols-1 md:grid-rows-2 md:grid-cols-2 gap-y-12 md:gap-y-24 items-center justify-items-center w-[95%] xl:w-4/5 m-auto mb-24">
           <img src="./info2.jpg" alt="about페이지 사진" className={ItemImg} />
           <div className="text-center">
             <h2 className={ItemTitle}>동아리 창단</h2>

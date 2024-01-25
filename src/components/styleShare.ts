@@ -1,8 +1,8 @@
 export const ItemTitle = "text-rose-500 font-bold text-2xl mb-3";
 
-export const ItemDescription = "text-xl leading-10";
+export const ItemDescription = "text-md md:text-xl leading-10 md:leading-10";
 
-export const ItemImg = "w-3/5 rounded-lg";
+export const ItemImg = "w-4/5 md:w-3/5 rounded-lg";
 
 export const SubmitBtn = "px-5 py-2 bg-[#dee2e6] hover:bg-[#ced4da] rounded-md mt-4 font-bold";
 

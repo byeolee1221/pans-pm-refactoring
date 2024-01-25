@@ -1,11 +1,11 @@
 import { Button } from "../ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 
-const Contact = () => {
+const MobileContact = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="bg-rose-600 font-bold text-lg text-white rounded-md px-4 py-2 hidden xl:block">동아리 문의</button>
+        <button className="font-bold text-lg text-center lg:text-start rounded-md hover:bg-slate-200 px-4 py-2 duration-150 block xl:hidden">동아리 문의</button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -28,4 +28,4 @@ const Contact = () => {
   );
 }
 
-export default Contact;
+export default MobileContact;

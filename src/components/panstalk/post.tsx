@@ -76,7 +76,7 @@ const Post = ({userName, photo, post, userId, id}: IPost) => {
   let PostEditBtn = "px-7 py-2 rounded-md text-md bg-[#ffd5c2] hover:bg-[#f28f3b] duration-150 mt-2";
 
   return (
-    <div className="flex flex-col p-5 border-2 border-solid border-zinc-500 rounded-lg w-[32rem] m-auto">
+    <div className="flex flex-col p-5 border-2 border-solid border-zinc-500 rounded-lg w-full md:w-[32rem] m-auto">
       <h2 className="font-bold text-lg">{userName}</h2>
       <div className="text-lg flex flex-col gap-3 mb-4"> 
         {edit ? <form onSubmit={onSubmit} className="w-80 ">

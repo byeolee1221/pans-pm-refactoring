@@ -9,10 +9,9 @@ import { useState } from "react";
 import { EmailAuthProvider, deleteUser, reauthenticateWithCredential } from "firebase/auth";
 import { Error } from "../styleShare";
 import { deleteDoc, doc } from "firebase/firestore";
-import { IPost } from "../panstalk/timeline";
 import { deleteObject, ref } from "firebase/storage";
 
-const DeleteAccount = ({photo, id, }: IPost) => {
+const DeleteAccount = () => {
   const navigate = useNavigate();
   const user = auth.currentUser;
 
@@ -42,15 +41,8 @@ const DeleteAccount = ({photo, id, }: IPost) => {
       setLoading(true);
       // 이메일과 비밀번호로 인증 정보 생성
       const credential = EmailAuthProvider.credential(email, password);
-      // 해당 유저의 게시글 삭제
-      await deleteDoc(doc(db, "panstalk", id));
-      if (photo) {
-        const photoRef = ref(storage, `panstalk/${user.uid}/${id}`);
-        await deleteObject(photoRef);
-      };
       // 생성된 인증 정보로 사용자 재인증
       await reauthenticateWithCredential(user, credential);
-      await deleteDoc(doc(db, "users", ))
       await deleteUser(user);
       alert("계정이 삭제되었습니다. 이용해주셔서 감사합니다.");
       setEmail("");

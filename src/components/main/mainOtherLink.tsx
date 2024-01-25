@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const MainOtherLink = () => {
   return (
     <div className="w-full">
-      <h1 className="text-center text-2xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-36 mb-12">여기도 놀러오세요!</h1>
+      <h1 className="text-center text-3xl sm:text-4xl md:text-5xl space-y-5 font-bold mt-20 md:mt-36 mb-12">여기도 놀러오세요!</h1>
       <div className="flex items-center justify-center gap-10 mb-12">
         <Link to="https://www.instagram.com/pans_pm/" target="_blank" rel="noopener noreferrer">
           <img src="./insta.png" alt="인스타그램 로고" />
