@@ -51,6 +51,7 @@ const PanstalkForm = () => {
           photo: url
         });
       };
+
       setFile(null);
       setPost("");
     } catch (error) {

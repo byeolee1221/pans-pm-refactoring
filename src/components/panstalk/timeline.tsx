@@ -49,7 +49,7 @@ const Timeline = () => {
   }, [])
 
   return (
-    <div className="flex gap-3 flex-col overflow-auto mb-7">
+    <div className="flex gap-3 flex-col overflow-y-auto mb-7">
       {posts.map((post) => <Post key={post.id} {...post} />)}
     </div>  
   );

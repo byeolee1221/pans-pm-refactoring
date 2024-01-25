@@ -58,7 +58,8 @@ const SignupPage = () => {
       await addDoc(collection(db, "users"), {
         nickName,
         name,
-        createdAt: Date.now()
+        affiliation,
+        createdAt: Date.now(),
       });
 
       navigate("/");      

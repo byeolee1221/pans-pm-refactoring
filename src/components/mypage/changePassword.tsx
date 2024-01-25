@@ -19,12 +19,14 @@ const ChangePassword = () => {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const onChangeCurrentPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrentPassword(e.target.value);
-  };
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { target: { name, value } } = e;
 
-  const onChangeNewPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewPassword(e.target.value);
+    if (name === "currentPassword") {
+      setCurrentPassword(value);
+    } else {
+      setNewPassword(value);
+    };
   };
 
   const onSubmitPassword = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -67,11 +69,11 @@ const ChangePassword = () => {
           <form onSubmit={onSubmitPassword} className="space-y-3">
             <div className="space-y-1">
               <Label htmlFor="currentPassword">현재 비밀번호</Label>
-              <Input onChange={onChangeCurrentPassword} type="password" id="currentPassword" name="currentPassword" />
+              <Input onChange={onChange} type="password" id="currentPassword" name="currentPassword" />
             </div>
             <div className="space-y-1">
               <Label htmlFor="newPassword">새 비밀번호</Label>
-              <Input onChange={onChangeNewPassword} type="password" id="newPassword" name="newPassword" />
+              <Input onChange={onChange} type="password" id="newPassword" name="newPassword" />
             </div>
             {error !== "" ? <p className={Error}>{error}</p> : null}
             <Button type="submit" variant="outline">{isLoading ? "변경중..." : "변경하기"}</Button>

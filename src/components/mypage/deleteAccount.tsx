@@ -1,4 +1,4 @@
-import { auth } from "@/firebase";
+import { auth, db, storage } from "@/firebase";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
@@ -8,8 +8,11 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { EmailAuthProvider, deleteUser, reauthenticateWithCredential } from "firebase/auth";
 import { Error } from "../styleShare";
+import { deleteDoc, doc } from "firebase/firestore";
+import { IPost } from "../panstalk/timeline";
+import { deleteObject, ref } from "firebase/storage";
 
-const DeleteAccount = () => {
+const DeleteAccount = ({photo, id, }: IPost) => {
   const navigate = useNavigate();
   const user = auth.currentUser;
 
@@ -18,12 +21,14 @@ const DeleteAccount = () => {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { target: { name, value } } = e;
 
-  const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
+    if (name === "email") {
+      setEmail(value);
+    } else {
+      setPassword(value);
+    };
   };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,8 +42,15 @@ const DeleteAccount = () => {
       setLoading(true);
       // 이메일과 비밀번호로 인증 정보 생성
       const credential = EmailAuthProvider.credential(email, password);
+      // 해당 유저의 게시글 삭제
+      await deleteDoc(doc(db, "panstalk", id));
+      if (photo) {
+        const photoRef = ref(storage, `panstalk/${user.uid}/${id}`);
+        await deleteObject(photoRef);
+      };
       // 생성된 인증 정보로 사용자 재인증
       await reauthenticateWithCredential(user, credential);
+      await deleteDoc(doc(db, "users", ))
       await deleteUser(user);
       alert("계정이 삭제되었습니다. 이용해주셔서 감사합니다.");
       setEmail("");
@@ -62,11 +74,11 @@ const DeleteAccount = () => {
           <form onSubmit={onSubmit} className="space-y-3">
             <div className="space-y-1">
               <Label htmlFor="email">이메일</Label>
-              <Input onChange={onChangeEmail} type="email" id="email" name="email" />
+              <Input onChange={onChange} type="email" id="email" name="email" />
             </div>
             <div className="space-y-1">
               <Label htmlFor="Password">비밀번호</Label>
-              <Input onChange={onChangePassword} type="password" id="Password" name="Password" />
+              <Input onChange={onChange} type="password" id="Password" name="Password" />
             </div>
             {error !== "" ? <p className={Error}>{error}</p> : null}
             <Button type="submit" variant="destructive">{isLoading ? "삭제중..." : "삭제하기"}</Button>

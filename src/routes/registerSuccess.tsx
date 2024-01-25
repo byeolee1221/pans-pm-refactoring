@@ -8,7 +8,7 @@ const RegisterSuccess = () => {
   };
 
   return (
-    <div className="mt-40 w-full m-auto flex flex-col items-center">
+    <div className="mt-40 w-full m-auto flex flex-col items-center justify-center min-h-dvh">
       <div className="flex items-center justify-center gap-3 mb-4">
         <img src="./logo.jpg" alt="동아리 로고" className="w-16 rounded-full" />
         <p className="text-4xl font-bold">PAN'S PM</p>
