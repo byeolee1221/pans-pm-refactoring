@@ -14,7 +14,7 @@
 
 ## 부분별 시퀀스 다이어그램
 * 동아리 가입신청
-![Alt text](/public/Network Diagram.png)
+![Alt text](/public/registerSequence.png)
 
 ## Pan's PM 동아리 웹사이트가 기여할 수 있는 점
 * 동아리에 관심있었던 사람이 동아리에 대해 신중히 판단할 수 있도록 해주고, 그 이후에 가입원서를 제출할 수 있어서 동아리의 홍보 및 문서업무면에서 효율성을 높여줍니다.
