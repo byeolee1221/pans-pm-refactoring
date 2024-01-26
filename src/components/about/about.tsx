@@ -1,7 +1,7 @@
 import { ItemDescription, ItemImg, ItemTitle } from "../styleShare";
 
 const About = () => {
-  let titleClass = "before:h-[30rem] before:w-full before:content-[''] before:bg-slate-800 before:absolute before:top-0 before:left-0 before:opacity-50 w-full h-[30rem] bg-[url('./activity8.jpg')] bg-cover bg-center flex flex-col items-center justify-center";
+  let titleClass = "before:h-[30rem] before:w-full before:content-[''] before:bg-slate-800 before:absolute before:top-0 before:left-0 before:opacity-50 w-full h-[30rem] bg-[url('/activity8.jpg')] bg-cover bg-center flex flex-col items-center justify-center";
 
   return (
     <div className="w-full">
@@ -43,8 +43,8 @@ const About = () => {
             <h2 className={ItemTitle}>장르를 가리지 않는 음악활동</h2>
             <p className={ItemDescription}>
               Pan's PM은 본래 락밴드 동아리였으나 <br />
-              현재는 락뿐만 아니라 다양한 장르의 음악을 하고 있습니다. <br />
-              여러분이 하고싶은 음악을 맘껏 즐기고 남다른 대학생활을 해보세요!
+              현재는 락뿐만 아니라 여러 장르의 음악을 하고 있습니다. <br />
+              하고싶은 음악을 맘껏 즐기고 남다른 대학생활을 해보세요!
             </p>
           </div>
           <img src="./activity5.jpg" alt="about페이지 사진" className={ItemImg} />

@@ -88,7 +88,7 @@ const Register = () => {
     };
   };
   
-  let titleClass = "before:h-[30rem] before:w-full before:content-[''] before:bg-slate-800 before:absolute before:top-0 before:left-0 before:opacity-50 w-full h-[30rem] bg-[url('./activity6.jpg')] bg-cover bg-center flex flex-col items-center justify-center";
+  let titleClass = "before:h-[30rem] before:w-full before:content-[''] before:bg-slate-800 before:absolute before:top-0 before:left-0 before:opacity-50 w-full h-[30rem] bg-[url('/activity6.jpg')] bg-cover bg-center flex flex-col items-center justify-center";
   let inputClass = "w-96 border border-solid rounded-md p-2 mt-4";
 
   return (
@@ -96,7 +96,7 @@ const Register = () => {
       {!isComplete ? <div className="w-full">
         <div className={titleClass}>
           <h1 className="text-2xl sm:text-3xl md:text-4xl text-white z-10 font-bold mt-24 mb-4">동아리 가입신청</h1>
-          <p className="text-white text-md sm:text-lg md:text-lg z-10">제출하시면 현 회장 또는 부회장이 며칠 내 연락드리겠습니다.</p>
+          <p className="text-white text-center text-sm md:text-md lg:text-lg z-10">제출하시면 현 회장 또는 부회장이 며칠 내 연락드리겠습니다.</p>
         </div>
         <div className="w-full">
           <h2 className="text-center text-3xl md:text-4xl lg:text-5xl space-y-5 font-bold mt-20 mb-10">동아리 가입원서</h2>

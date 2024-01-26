@@ -8,7 +8,6 @@ import { addDoc, collection} from "firebase/firestore";
 
 const SignupPage = () => {
   const navigate = useNavigate();
-
   const [isLoading, setLoading] = useState(false);
   const [affiliation, setAffiliation] = useState("");
   const [ordinal, setOrdinal] = useState("");
@@ -79,7 +78,7 @@ const SignupPage = () => {
   let Input = "w-80 border border-solid rounded-md p-2";
 
   return (
-    <div className="w-full mt-40 mb-16 flex flex-col items-center">
+    <div className="w-full min-h-dvh mt-40 mb-16 flex flex-col items-center">
       <form onSubmit={onSubmit} className={AuthForm}>
         <div className="flex items-center justify-center gap-3 mt-4">
           <img src="./logo.jpg" alt="동아리 로고" className="w-16 rounded-full" />
@@ -89,8 +88,8 @@ const SignupPage = () => {
           동아리 가입원서를 내고 싶으신 분은 
           <Link to="/register" className="text-blue-600"> 여기를 누르세요!</Link>
         </p>
-        <div className="flex items-center gap-14 mt-7 justify-center">
-          <label htmlFor="affiliation" className="text-lg">소속</label>
+        <div className="flex items-center gap-6 md:gap-14 mt-7 justify-center px-1 md:px-0">
+          <label htmlFor="affiliation" className="text-sm md:text-lg w-12 md:w-auto">소속</label>
           <select onChange={onChangeSelect} className={Input} name="affiliation" id="affiliation" value={affiliation} required>
             <option value="" defaultChecked disabled>--소속을 골라주세요--</option>
             <option value="Pan's PM" >Pan's PM</option>
@@ -99,23 +98,23 @@ const SignupPage = () => {
           </select>
         </div>
         <div className={FormItem}>
-          <label htmlFor="ordinal" className="text-lg">기수</label>
+          <label htmlFor="ordinal" className="text-sm md:text-lg w-12 md:w-auto">기수</label>
           <input onChange={onChange} className={Input} type="text" value={ordinal} name="ordinal" id="ordinal" placeholder="Pan's PM 멤버만 입력하세요." />
         </div>
         <div className={FormItem}>
-          <label htmlFor="name" className="text-lg">성명</label>
+          <label htmlFor="name" className="text-sm md:text-lg w-12 md:w-auto">성명</label>
           <input onChange={onChange} className={Input} type="text" value={name} name="name" id="name" required />
         </div>
-        <div className="flex items-center justify-center gap-10 mt-4">
-          <label htmlFor="nickName" className="text-lg">닉네임</label>
+        <div className="flex items-center justify-center gap-2 md:gap-10 mt-4 px-1 md:px-0">
+          <label htmlFor="nickName" className="text-sm md:text-lg w-20 md:w-auto">닉네임</label>
           <input onChange={onChange} className={Input} type="text" value={nickName} name="nickName" id="nickName" required />
         </div>
-        <div className="flex items-center gap-6 justify-center mt-4">
-          <label htmlFor="password" className="text-lg">비밀번호</label>
+        <div className="flex items-center gap-2 md:gap-6 justify-center mt-4 px-1 md:px-0">
+          <label htmlFor="password" className="text-sm md:text-lg w-20 md:w-auto">비밀번호</label>
           <input onChange={onChange} className={Input} type="password" value={password} name="password" id="password" required />
         </div>
-        <div className="flex items-center gap-10 justify-center mt-4">
-          <label htmlFor="email" className="text-lg">이메일</label>
+        <div className="flex items-center gap-2 md:gap-10 justify-center mt-4 px-1 md:px-0">
+          <label htmlFor="email" className="text-sm md:text-lg w-20 md:w-auto">이메일</label>
           <input onChange={onChange} className={Input} type="email" value={email} name="email" id="email" required />
         </div>
         {error !== "" ? <span className={Error}>{error}</span> : null}

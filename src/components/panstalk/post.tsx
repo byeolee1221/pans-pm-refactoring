@@ -79,7 +79,7 @@ const Post = ({userName, photo, post, userId, id}: IPost) => {
     <div className="flex flex-col p-5 border-2 border-solid border-zinc-500 rounded-lg w-full md:w-[32rem] m-auto">
       <h2 className="font-bold text-lg">{userName}</h2>
       <div className="text-lg flex flex-col gap-3 mb-4"> 
-        {edit ? <form onSubmit={onSubmit} className="w-80 ">
+        {edit ? <form onSubmit={onSubmit} className="w-80">
           <textarea onChange={onChange} defaultValue={post} rows={3} maxLength={200} className={PostEditTextArea} />
           <div className="flex items-center gap-3">
             <button type="submit" className={PostEditBtn}>{isLoading ? "게시하는 중..." : "게시하기"}</button>

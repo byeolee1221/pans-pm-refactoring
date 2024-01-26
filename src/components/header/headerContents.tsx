@@ -22,8 +22,8 @@ const HeaderContents = () => {
       <div className="text-sm md:text-xl font-light text-zinc-400">
         언제든 연락주세요! 기다리고 있을게요╰(*°▽°*)╯
       </div>
-      <div className="h-96 w-full bg-[url('./main.jpg')] bg-center bg-cover flex items-center justify-center">
-        <img src="./logo.jpg" alt="로고 이미지" className="rounded-full invert" />
+      <div className="h-96 w-full bg-[url('/main.jpg')] bg-center bg-cover flex items-center justify-center">
+        <img src="./logo.jpg" alt="로고 이미지" className="rounded-full invert w-32 md:w-auto" />
       </div>
     </div>  
   );
