@@ -61,16 +61,16 @@ const Manage = () => {
 
   return (
     <div className="w-full">
-        <div className="flex items-center ml-12 mt-10 gap-x-4">
+        <div className="flex items-center ml-2 md:ml-12 mt-10 gap-x-4">
           <img src="./logo.jpg" alt="메인페이지 로고" className="w-16 rounded-full" />
           <p className="text-4xl font-bold">PAN'S PM 관리자 페이지 대시보드</p>
         </div>
-      <div className="flex gap-x-20">
-        <div className="w-[32rem] mt-4 mb-10 ml-12 flex flex-col gap-y-2 overflow-y-auto">
+      <div className="flex flex-col md:flex-row gap-x-20">
+        <div className="w-full md:w-[32rem] mt-4 mb-10 md:ml-12 flex flex-col gap-y-2 overflow-y-auto">
           <h2 className="font-bold text-xl mb-4">💡 동아리 가입신청 현황</h2>
           {register.map((doc) => <RegisterList key={doc.id} {...doc} />)}
         </div>
-        <div className=" mt-4 mb-10 ml-12 overflow-y-auto">
+        <div className="mt-4 mb-10 xl:ml-12 overflow-y-auto">
           <h2 className="font-bold text-xl mb-6">💡 웹사이트 회원 현황</h2>
           <Users />
         </div>

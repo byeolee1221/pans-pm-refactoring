@@ -20,7 +20,7 @@ const UsersList = ({ name, nickName, affiliation, createdAt }: IUsers) => {
   let formattedDate = `${year}-${month}-${day}`;
 
   return (
-    <div className="grid grid-cols-2 grid-rows-2 gap-y-1 px-2 py-5 border-2 border-solid border-neutral-300 rounded-md w-80">
+    <div className="grid grid-cols-2 grid-rows-2 gap-y-1 px-2 py-5 border-2 border-solid border-neutral-300 rounded-md w-full md:w-80">
       <h2 className="font-bold">이름: {name}</h2>
       <p>닉네임: {nickName}</p>
       <p>소속: {affiliation}</p>

@@ -1,4 +1,4 @@
-import { auth, db, storage } from "@/firebase";
+import { auth } from "@/firebase";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
@@ -8,8 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { EmailAuthProvider, deleteUser, reauthenticateWithCredential } from "firebase/auth";
 import { Error } from "../styleShare";
-import { deleteDoc, doc } from "firebase/firestore";
-import { deleteObject, ref } from "firebase/storage";
 
 const DeleteAccount = () => {
   const navigate = useNavigate();
@@ -43,6 +41,7 @@ const DeleteAccount = () => {
       const credential = EmailAuthProvider.credential(email, password);
       // 생성된 인증 정보로 사용자 재인증
       await reauthenticateWithCredential(user, credential);
+
       await deleteUser(user);
       alert("계정이 삭제되었습니다. 이용해주셔서 감사합니다.");
       setEmail("");
@@ -50,6 +49,7 @@ const DeleteAccount = () => {
       navigate("/");
     } catch (error) {
       setError("입력하신 정보가 올바르지 않습니다.");
+      console.log(error);
     } finally {
       setLoading(false);
     };

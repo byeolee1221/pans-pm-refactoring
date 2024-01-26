@@ -9,7 +9,6 @@ import { useState } from "react";
 import { updatePassword } from "firebase/auth";
 import { Error } from "../styleShare";
 
-
 const ChangePassword = () => {
   const user = auth.currentUser;
   const navigate = useNavigate();
@@ -43,6 +42,7 @@ const ChangePassword = () => {
     
     try {
       setLoading(true);
+
       await updatePassword(user, newPassword);
       alert("비밀번호가 변경되었습니다. 다시 로그인해주세요.");
       setCurrentPassword("");
