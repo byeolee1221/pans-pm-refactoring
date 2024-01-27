@@ -1,7 +1,9 @@
 import { auth, db, storage } from "@/firebase";
+import { FirebaseError } from "firebase/app";
 import { addDoc, collection, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useState } from "react";
+import { Error } from "../styleShare";
 
 const PanstalkForm = () => {
   const user = auth.currentUser;
@@ -9,6 +11,7 @@ const PanstalkForm = () => {
   const [isLoading, setLoading] = useState(false);
   const [post, setPost] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [error, setError] = useState("");
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPost(e.target.value);
@@ -18,7 +21,7 @@ const PanstalkForm = () => {
     const { files } = e.target;
 
     if (files && files.length === 1) {
-      if (files[0].size < 1024 * 1024) {
+      if (files[0].size <= 1024 * 1024) {
         setFile(files[0]);
       } else {
         alert("파일은 1MB를 넘을 수 없습니다.");
@@ -54,8 +57,11 @@ const PanstalkForm = () => {
 
       setFile(null);
       setPost("");
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
+      if (e instanceof FirebaseError) {
+        setError(e.message);
+      };
+      console.error(e);
     } finally {
       setLoading(false);
     };
@@ -69,6 +75,7 @@ const PanstalkForm = () => {
       {user ? <form onSubmit={onSubmit} className="w-full md:w-[35rem] h-auto flex flex-col mt-7 pb-10 gap-4">
         <textarea onChange={onChange} className="resize-none p-4 border-2 border-solid rounded-lg" value={post} rows={5} maxLength={200} placeholder="오늘은 어떤 하루였나요?" required />
         <label className={Label} htmlFor="file">{file ? "사진 추가됨 ✔" : "사진 추가하기"}</label>
+        {error !== "" ? <p className={Error}>{error}</p> : null}
         <input onChange={onFileChange} className="hidden" type="file" id="file" accept="image/*" />
         <button className={btnStyle} type="submit">{isLoading ? "게시하는 중..." : "게시하기"}</button>
       </form> : null}

@@ -72,7 +72,7 @@ const Post = ({userName, photo, post, userId, id}: IPost) => {
 
   let DeleteBtn = "px-7 py-2 rounded-md text-md bg-[#cbf3f0] hover:bg-[#2ec4b6] border-2 border-solid border-zinc-500";
   let EditBtn = "px-7 py-2 rounded-md text-md bg-[#ffbf69] hover:bg-[#ff9f1c] border-2 border-solid border-zinc-500";
-  let PostEditTextArea = "resize-none border border-solid border-neutral-400 rounded-lg px-2 w-[28rem] mt-2";
+  let PostEditTextArea = "resize-none border border-solid border-neutral-400 rounded-lg px-2 w-full md:w-[28rem] mt-2";
   let PostEditBtn = "px-7 py-2 rounded-md text-md bg-[#ffd5c2] hover:bg-[#f28f3b] duration-150 mt-2";
 
   return (
