@@ -6,19 +6,20 @@
 * 제작 인원: 1명 (프론트엔드 - 문창기)
 * 웹사이트: https://pans-pm.web.app
 * 사용 기술스택
- + 프론트엔드: 
+  + 프론트엔드: 
   ![](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white) 
   ![](https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white) 
   ![](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=TailwindCSS&logoColor=white)
- + 백엔드 및 DB, 호스팅:
+  + 백엔드 및 DB, 호스팅:
   ![](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=Firebase&logoColor=white)
 
 ## 주요기능별 시퀀스 다이어그램
 * 동아리 가입신청
 ![Alt text](/public/registerSequence.png)
 * 판스TALK
-
+![Alt text](/public/panstalkSequence.png)
 * 계정 관리
+![Alt text](/public/mypageSequence.png)
 
 ## 기존 웹사이트에서 달라진 점
 * 기존 웹사이트 주소: https://byeolee1221.github.io/

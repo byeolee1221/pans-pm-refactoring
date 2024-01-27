@@ -25,17 +25,19 @@ const ChangeNickName = () => {
   // 닉네임 변경버튼 누르면 실행되는 함수
   const onSubmitNickName = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // 닉네임 중복확인을 위해 DB 내의 닉네임 호출
-    const userNameRef = doc(db, "users", nickName);
-    const docRef = await getDoc(userNameRef);
-
+    
     if (!user || nickName === "") {
       return;
     };
 
+    // 닉네임 중복확인을 위해 DB 내의 닉네임 호출
+    const userNameRef = doc(db, "users", `${nickName}`);
+    const docRef = await getDoc(userNameRef);
+    
     // 중복확인 시 중복되면 함수 종료
-    if (docRef.id) {
+    if (docRef.exists()) {
       alert("이미 존재하는 닉네임입니다.");
+      console.log(userNameRef);
       return;
     };
 
