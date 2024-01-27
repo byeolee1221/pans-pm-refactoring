@@ -1,3 +1,5 @@
+
+// 스타일 공유
 export const ItemTitle = "text-rose-500 font-bold text-2xl mb-3";
 
 export const ItemDescription = "text-md md:text-xl leading-10 md:leading-10";

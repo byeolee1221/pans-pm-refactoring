@@ -5,6 +5,7 @@ import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
+// 로그인 컴포넌트
 const SigninPage = () => {
   const navigate = useNavigate();
 
@@ -13,6 +14,7 @@ const SigninPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // 이메일, 비밀번호 입력 값
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = e;
 
@@ -23,6 +25,7 @@ const SigninPage = () => {
     };
   };
 
+  // 로그인 버튼을 누르면 실행되는 함수
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

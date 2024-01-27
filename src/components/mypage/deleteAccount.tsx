@@ -9,6 +9,7 @@ import { useState } from "react";
 import { EmailAuthProvider, deleteUser, reauthenticateWithCredential } from "firebase/auth";
 import { Error } from "../styleShare";
 
+// 계정 삭제 컴포넌트
 const DeleteAccount = () => {
   const navigate = useNavigate();
   const user = auth.currentUser;
@@ -18,6 +19,7 @@ const DeleteAccount = () => {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // 이메일, 비밀번호 입력 값
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = e;
 
@@ -28,6 +30,7 @@ const DeleteAccount = () => {
     };
   };
 
+  // 삭제버튼을 눌렀을 때 실행되는 함수
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

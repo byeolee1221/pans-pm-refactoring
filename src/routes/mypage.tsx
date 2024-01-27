@@ -1,5 +1,6 @@
 import UserInfo from "@/components/mypage/userInfo";
 
+// 마이페이지 레이아웃
 const Mypage = () => {
   let titleClass = "before:h-[30rem] before:w-full before:content-[''] before:bg-slate-800 before:absolute before:top-0 before:left-0 before:opacity-50 w-full h-[30rem] bg-[url('/activity4.jpg')] bg-cover bg-center flex flex-col items-center justify-center";
 

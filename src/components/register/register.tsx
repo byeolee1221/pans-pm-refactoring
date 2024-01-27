@@ -4,8 +4,8 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase";
 import RegisterSuccess from "@/routes/registerSuccess";
 
+// 동아리 가입신청 컴포넌트
 const Register = () => {
-
   const [isLoading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -18,6 +18,7 @@ const Register = () => {
   const [musician, setMusician] = useState("");
   const [isComplete, setComplete] = useState(false);
 
+  // 가입신청 자료 입력 값
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = e;
 
@@ -40,6 +41,7 @@ const Register = () => {
     };
   };
 
+  // radio 버튼의 input 요소 선택 값
   const onChangeGender = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = e;
 
@@ -50,6 +52,7 @@ const Register = () => {
     };
   };
 
+  // 제출버튼을 눌렀을 때 실행되는 함수
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

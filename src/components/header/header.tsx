@@ -3,11 +3,13 @@ import { auth } from "../../firebase";
 import Contact from "../contact/contact";
 import MobileHeader from "./mobileHeader";
 
+// nav 바 컴포넌트
 const HeaderPage = () => {
   const user = auth.currentUser;
 
   const navigate = useNavigate();
 
+  // 로그아웃 시 실행되는 함수
   const onClick = async () => {
     const ok = confirm("정말 로그아웃 하시겠어요?");
 

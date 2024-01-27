@@ -9,6 +9,7 @@ import { AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// 관리자페이지 코드 인가 전 화면
 const ManagePage = () => {
   const user = auth.currentUser;
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const ManagePage = () => {
   const [error, setError] = useState("");
   const [codePass, setCodePass] = useState(false);
 
+  // 사용자가 입력하는 관리자 코드 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = e;
 
@@ -29,6 +31,7 @@ const ManagePage = () => {
     };
   };
 
+  // 관리자 코드 입력 후 권한 확인시 실행되는 함수
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -71,12 +74,12 @@ const ManagePage = () => {
             </SheetHeader>
             <form onSubmit={onSubmit}>
               <div className="grid gap-4 py-4">
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="code1" className="text-right">관리자 코드</Label>
+                <div className="grid grid-cols-3 md:grid-cols-4 items-center gap-4">
+                  <Label htmlFor="code1" className="md:text-right">관리자 코드</Label>
                   <Input onChange={onChange} id="code1" name="code1" className="col-span-3" type="password" />
                 </div>
-                <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="code2" className="text-right">코드 확인</Label>
+                <div className="grid grid-cols-3 md:grid-cols-4 items-center gap-4">
+                  <Label htmlFor="code2" className="md:text-right">코드 확인</Label>
                   <Input onChange={onChange} id="code2" name="code2" className="col-span-3" type="password" />
                 </div>
               </div>

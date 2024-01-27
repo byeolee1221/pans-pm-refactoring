@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
+// 동아리 가입신청자료 제출 시 이동하여 화면에 띄우는 컴포넌트
 const RegisterSuccess = () => {
   const navigate = useNavigate();
 

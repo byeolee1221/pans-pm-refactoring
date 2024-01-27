@@ -9,6 +9,7 @@ import { useState } from "react";
 import { updatePassword } from "firebase/auth";
 import { Error } from "../styleShare";
 
+// 비밀번호 변경 컴포넌트
 const ChangePassword = () => {
   const user = auth.currentUser;
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const ChangePassword = () => {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // 현재 비밀번호 및 새 비밀번호 입력 값
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = e;
 
@@ -28,6 +30,7 @@ const ChangePassword = () => {
     };
   };
 
+  // 변경버튼 누를 때 실행되는 함수
   const onSubmitPassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

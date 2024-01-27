@@ -4,6 +4,7 @@ import { useState } from "react";
 import { deleteDoc, doc, setDoc } from "firebase/firestore";
 import { deleteObject, ref } from "firebase/storage";
 
+// 게시글을 추가했을 때 리스트로 나타날 모양, 게시글 삭제 및 수정기능
 const Post = ({userName, photo, post, userId, id}: IPost) => {
   const user = auth.currentUser;
 
@@ -11,6 +12,7 @@ const Post = ({userName, photo, post, userId, id}: IPost) => {
   const [isLoading, setLoading] = useState(false);
   const [newPost, setNewPost] = useState("");
 
+  // 게시글 삭제버튼을 눌렀을 때 실행되는 함수
   const onDelete = async () => {
     const ok = confirm("정말 게시글을 삭제하시겠어요?");
 
@@ -30,10 +32,12 @@ const Post = ({userName, photo, post, userId, id}: IPost) => {
     };
   };
 
+  // 수정 시 나타나는 TextArea 요소의 입력된 값
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewPost(e.target.value);
   };
 
+  // 수정버튼을 눌렀을 때 실행되는 함수
   const onEdit = () => {
     if (user?.uid !== userId) {
       return;
@@ -42,6 +46,7 @@ const Post = ({userName, photo, post, userId, id}: IPost) => {
     setEdit(true);
   };
 
+  // 게시글을 수정입력하여 최종적으로 수정할 때 실행되는 함수
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -70,6 +75,7 @@ const Post = ({userName, photo, post, userId, id}: IPost) => {
     setEdit(false);
   };
 
+  // 컴포넌트 내 요소들의 디자인
   let DeleteBtn = "px-7 py-2 rounded-md text-md bg-[#cbf3f0] hover:bg-[#2ec4b6] border-2 border-solid border-zinc-500";
   let EditBtn = "px-7 py-2 rounded-md text-md bg-[#ffbf69] hover:bg-[#ff9f1c] border-2 border-solid border-zinc-500";
   let PostEditTextArea = "resize-none border border-solid border-neutral-400 rounded-lg px-2 w-full md:w-[28rem] mt-2";

@@ -1,8 +1,9 @@
 import TypewriterComponent from "typewriter-effect";
 
+// Nav 바 아래부터 메인이미지까지를 담고 있는 컴포넌트
 const HeaderContents = () => {
   return (
-    <div className="font-bold py-36 text-center space-y-5">
+    <div className="font-bold pt-36 mb-20 text-center space-y-5">
       <div className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
         <h1>밴드동아리 PAN'S PM은요!</h1>
         <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">

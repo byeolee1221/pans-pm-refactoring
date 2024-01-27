@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import RegisterList from "./registerList";
 import Users from "./users";
 
+// 동아리 가입신청 자료의 타입
 export interface IRegister {
   name: string;
   age: number;
@@ -19,12 +20,16 @@ export interface IRegister {
   id: string;
 };
 
+// 관리자 권한 확인 후 뜨는 컴포넌트
 const Manage = () => {
   const [register, setRegister] = useState<IRegister[]>([]);
 
+  // 언마운트 됐을 때 실행되지 않도록 useEffect 내에 기능구현
   useEffect(() => {
+    // onSnapshot 함수가 반환하는 Unsubscribe의 타입과 기본값 지정
     let unsubscribe: Unsubscribe | null = null;
 
+    // 가입신청 자료를 불러오는 컬렉션과 생성일을 기준으로 내림차순 정렬 설정, 최대로 보이는 게시글 갯수 지정
     const fetchRegister = async () => {
       const registerQuery = query(
         collection(db, "register"),
@@ -32,6 +37,7 @@ const Manage = () => {
         limit(10)
       );
 
+      // 어떤 데이터를 불러올지 지정하는 onSnapshot 리스너 함수
       unsubscribe = await onSnapshot(registerQuery, (snapshot) => {
         const registerDoc = snapshot.docs.map((doc) => {
           const { name, age, department, gender, tel, army, genre, part, musician, createdAt } = doc.data();
@@ -52,8 +58,10 @@ const Manage = () => {
         setRegister(registerDoc);
       })
     }
+    // 지정된 데이터를 DB에서 불러오기 위해 fetchRegister 함수 실행
     fetchRegister();
 
+    // 다 불러온 이후 unsubscribe 및 리스너 함수와 연결된 unsubscribe 함수 종료
     return () => {
       unsubscribe && unsubscribe();
     };

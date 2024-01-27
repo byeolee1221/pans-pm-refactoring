@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// 메인페이지 내 외부사이트 링크 컴포넌트
 const MainOtherLink = () => {
   return (
     <div className="w-full">

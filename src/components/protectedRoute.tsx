@@ -1,6 +1,7 @@
 import { auth } from "@/firebase";
 import { Navigate } from "react-router-dom";
 
+// 비로그인 유저의 관리자페이지 접근을 막는 컴포넌트
 const ProtectedRoute = ({
   children
 }: {

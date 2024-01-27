@@ -4,6 +4,7 @@ import { auth } from "@/firebase";
 import MobileContact from "../contact/mobileContact";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 
+// 1280px 이하에 적용되는 헤더 컴포넌트
 const MobileHeader = () => {
   const user = auth.currentUser;
 

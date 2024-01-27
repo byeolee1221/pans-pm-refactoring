@@ -5,6 +5,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useState } from "react";
 import { Error } from "../styleShare";
 
+// 게시글 작성 컴포넌트
 const PanstalkForm = () => {
   const user = auth.currentUser;
 
@@ -13,10 +14,12 @@ const PanstalkForm = () => {
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState("");
 
+  // 게시글 작성하는 textArea 입력 값
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPost(e.target.value);
   };
 
+  // 사진 첨부할 때의 사진파일
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
 
@@ -29,6 +32,7 @@ const PanstalkForm = () => {
     };
   };
 
+  // 게시글 작성버튼 누르면 실행되는 함수
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const user = auth.currentUser;
@@ -46,6 +50,7 @@ const PanstalkForm = () => {
         userId: user.uid
       });
 
+      // 사진파일이 있을 경우 스토리지에 저장할 경로를 지정하고 그 url을 가져와서 게시글 데이터에 photo라는 이름으로 url을 저장
       if (file) {
         const locationRef = ref(storage, `panstalk/${user.uid}/${doc.id}`);
         const result = await uploadBytes(locationRef, file);
@@ -59,7 +64,9 @@ const PanstalkForm = () => {
       setPost("");
     } catch (e) {
       if (e instanceof FirebaseError) {
-        setError(e.message);
+        if (e.code === "storage/unauthorized") {
+          setError("로그인하시거나 첨부된 파일이 1MB 이하인지 확인해주세요.");
+        };
       };
       console.error(e);
     } finally {

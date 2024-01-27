@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// 사이트 하단 footer 컴포넌트
 const FooterPage = () => {
   return (
     <div className="w-full py-10 bg-[#212529] flex flex-col md:flex-row items-center justify-between">

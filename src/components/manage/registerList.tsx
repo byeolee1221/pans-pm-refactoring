@@ -1,5 +1,6 @@
 import { IRegister } from "./manage";
 
+// 관리자페이지 내 동아리 가입신청 자료
 const RegisterList = ({name, age, department, gender, tel, army, genre, part, musician}: IRegister) => {
   return (
     <div className="grid grid-cols-2 grid-rows-2 gap-y-1 px-2 py-5 border-2 border-solid border-neutral-300 rounded-md w-full md:w-[32rem]">

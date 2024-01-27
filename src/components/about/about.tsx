@@ -1,5 +1,6 @@
 import { ItemDescription, ItemImg, ItemTitle } from "../styleShare";
 
+// 동아리 소개 컴포넌트
 const About = () => {
   let titleClass = "before:h-[30rem] before:w-full before:content-[''] before:bg-slate-800 before:absolute before:top-0 before:left-0 before:opacity-50 w-full h-[30rem] bg-[url('/activity8.jpg')] bg-cover bg-center flex flex-col items-center justify-center";
 

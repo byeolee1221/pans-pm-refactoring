@@ -1,3 +1,4 @@
+// 메인페이지 내 '동아리에 잘 맞는 타입' 컴포넌트
 const MainSubInfo = () => {
   let itemBoxStyle = "flex flex-col items-center gap-y-4";
   let itemDiscriptionStyle = "text-gray-500 text-center";

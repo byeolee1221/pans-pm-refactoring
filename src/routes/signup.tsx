@@ -6,6 +6,7 @@ import { auth, db } from "../firebase";
 import { FirebaseError } from "firebase/app";
 import { addDoc, collection} from "firebase/firestore";
 
+// 회원가입 컴포넌트
 const SignupPage = () => {
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
@@ -17,10 +18,12 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
+  // select 요소에서 선택된 값
   const onChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setAffiliation(e.target.value);
   };
 
+  // input 요소에서 사용자가 입력한 값
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { name, value } } = e;
     
@@ -37,6 +40,7 @@ const SignupPage = () => {
     };
   };
 
+  // 회원가입 버튼을 눌렀을 때 실행되는 함수
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
@@ -54,6 +58,7 @@ const SignupPage = () => {
         displayName: nickName
       });
 
+      // 관리자페이지에 회원정보 전달을 위해 DB의 users 컬렉션 내에 데이터 추가
       await addDoc(collection(db, "users"), {
         nickName,
         name,

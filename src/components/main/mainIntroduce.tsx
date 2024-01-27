@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ItemDescription, ItemImg, ItemTitle } from "../styleShare";
 
+// 메인페이지 내 동아리 소개 컴포넌트
 const MainIntroduce = () => {
   return (
     <div className="w-full">

@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 
+// 동아리 문의버튼 클릭 시 나타나는 컴포넌트
 const Contact = () => {
   return (
     <Dialog>

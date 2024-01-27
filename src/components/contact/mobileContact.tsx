@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 
+// 1280px 이하 디바이스에서 사이트 메뉴 내에 위치하는 '동아리 문의' 컴포넌트
 const MobileContact = () => {
   return (
     <Dialog>

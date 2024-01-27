@@ -1,6 +1,8 @@
 import { IUsers } from "./users";
 
+// 관리자 페이지 내 회원가입 명단
 const UsersList = ({ name, nickName, affiliation, createdAt }: IUsers) => {
+  // 정확한 가입일을 0000-00-00 형식으로 나타내기 위한 작업
   let timestamp = createdAt;
   let date = new Date(timestamp);
 

@@ -13,6 +13,7 @@ import LoadingScreen from "./components/loading-screen";
 import ProtectedRoute from "./components/protectedRoute";
 import ManagePage from "./routes/manage";
 
+// 라우트 및 인증상태를 확인하는 app 컴포넌트
 const App = () => {
   const [isLoading, setLoading] = useState(true);
 
