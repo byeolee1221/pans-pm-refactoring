@@ -61,8 +61,13 @@ const Post = ({userName, photo, post, userId, id}: IPost) => {
         createdAt: Date.now(),
         userName: user.displayName || "Anonymous",
         userId: user.uid,
-        photo
       });
+
+      // 수정할 때 기존 문서에 사진파일이 있다면 url을 참조하여 새 내용으로 덮어쓴 문서에 병합
+      if (photo) {
+        const photoRef = doc(db, "panstalk", photo);
+        await setDoc(photoRef, { capital: true }, { merge: true });
+      };
     } catch (error) {
       console.error(error);
     } finally {
