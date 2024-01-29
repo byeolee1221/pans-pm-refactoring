@@ -6,7 +6,7 @@ import { Label } from "../ui/label";
 import { TabsContent } from "../ui/tabs";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { updatePassword } from "firebase/auth";
+import { EmailAuthProvider, reauthenticateWithCredential, updatePassword } from "firebase/auth";
 import { Error } from "../styleShare";
 
 // 비밀번호 변경 컴포넌트
@@ -45,6 +45,11 @@ const ChangePassword = () => {
     
     try {
       setLoading(true);
+      // 이메일과 비밀번호로 인증 정보 생성 후 유저 재인증
+      if (user.email) {
+        const credential = EmailAuthProvider.credential(user.email, currentPassword);
+        await reauthenticateWithCredential(user, credential);
+      };
 
       await updatePassword(user, newPassword);
       alert("비밀번호가 변경되었습니다. 다시 로그인해주세요.");

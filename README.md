@@ -20,6 +20,8 @@
 ![Alt text](/public/panstalkSequence.png)
 * 계정 관리
 ![Alt text](/public/mypageSequence.png)
+* 관리자페이지
+![Alt text](/public/manageSequence.png)
 
 ## 기존 웹사이트에서 달라진 점
 * 기존 웹사이트 주소: https://byeolee1221.github.io/

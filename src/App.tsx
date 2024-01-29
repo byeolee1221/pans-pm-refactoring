@@ -12,6 +12,7 @@ import { auth } from "./firebase";
 import LoadingScreen from "./components/loading-screen";
 import ProtectedRoute from "./components/protectedRoute";
 import ManagePage from "./routes/manage";
+import ScrollToTop from "./components/scrollToTop";
 
 // 라우트 및 인증상태를 확인하는 app 컴포넌트
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
       path: "manage",
       element:
         <ProtectedRoute>
+          <ScrollToTop />
           <ManagePage />
         </ProtectedRoute>
     }
