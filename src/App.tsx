@@ -13,6 +13,7 @@ import LoadingScreen from "./components/loading-screen";
 import ProtectedRoute from "./components/protectedRoute";
 import ManagePage from "./routes/manage";
 import ScrollToTop from "./components/scrollToTop";
+import Error from "./components/error";
 
 // 라우트 및 인증상태를 확인하는 app 컴포넌트
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
     {
       path: "/",
       element: <Root />,
+      errorElement: <Error />,
       children: [
         { index: true, element: <Home /> },
         { path: "about", element: <AboutPage /> },
