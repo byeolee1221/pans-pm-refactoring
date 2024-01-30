@@ -1,4 +1,4 @@
-import { auth } from "@/firebase";
+import { auth, db, storage } from "@/firebase";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { EmailAuthProvider, deleteUser, reauthenticateWithCredential } from "firebase/auth";
 import { Error } from "../styleShare";
+import { collection, deleteDoc, getDocs, query, where } from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
 
 // 계정 삭제 컴포넌트
 const DeleteAccount = () => {
@@ -38,13 +40,33 @@ const DeleteAccount = () => {
       return;
     };
 
+    // 삭제 예정인 계정으로 올린 게시글 조회 (게시글이 여러 개일 수 있으므로 getDocs 사용)
+    const userDocSnapshot = await getDocs(query(collection(db, "panstalk"), where("userName", "==", user.displayName)));
+    const userDoc = userDocSnapshot.docs;
+
+    // DB의 users 컬렉션에서 계정 조회
+    const userSnapshot = await getDocs(query(collection(db, "users"), where("nickName", "==", user.displayName)));
+    const userDataDoc = userSnapshot.docs[0];
+
     try {
       setLoading(true);
       // 이메일과 비밀번호로 인증 정보 생성
       const credential = EmailAuthProvider.credential(email, password);
       // 생성된 인증 정보로 사용자 재인증
       await reauthenticateWithCredential(user, credential);
-
+      // 유저가 올린 게시물 삭제
+      for (let doc of userDoc) {
+        // 사진 삭제
+        const data = doc.data();
+        if (data.photo) {
+          const photoRef = ref(storage, `panstalk/${user.uid}/${doc.id}`);
+          await deleteObject(photoRef);
+        };
+        await deleteDoc(doc.ref);
+      };
+      // DB의 users 컬렉션에서 해당 유저 삭제
+      await deleteDoc(userDataDoc.ref);
+      // 계정 삭제
       await deleteUser(user);
       alert("계정이 삭제되었습니다. 이용해주셔서 감사합니다.");
       setEmail("");

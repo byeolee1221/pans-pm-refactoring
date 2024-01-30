@@ -10,7 +10,7 @@
   ![](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white) 
   ![](https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white) 
   ![](https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=TailwindCSS&logoColor=white)
-  + 백엔드 및 DB, 호스팅:
+  + 백엔드 및 호스팅:
   ![](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=Firebase&logoColor=white)
 
 ## 주요기능별 시퀀스 다이어그램

@@ -6,7 +6,7 @@ import { Label } from "../ui/label";
 import { TabsContent } from "../ui/tabs";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { collection, getDocs, query, updateDoc, where } from "firebase/firestore";
+import { collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { updateProfile } from "firebase/auth";
 import { Error } from "../styleShare";
 
