@@ -93,7 +93,7 @@ const SignupPage = () => {
           동아리 가입원서를 내고 싶으신 분은 
           <Link to="/register" className="text-blue-600"> 여기를 누르세요!</Link>
         </p>
-        <div className="flex items-center gap-6 md:gap-14 mt-7 justify-center px-1 md:px-0">
+        <div className="flex items-center gap-8 md:gap-14 mt-7 justify-center px-1 md:px-0">
           <label htmlFor="affiliation" className="text-sm md:text-lg w-12 md:w-auto">소속</label>
           <select onChange={onChangeSelect} className={Input} name="affiliation" id="affiliation" value={affiliation} required>
             <option value="" defaultChecked disabled>--소속을 골라주세요--</option>
@@ -110,16 +110,16 @@ const SignupPage = () => {
           <label htmlFor="name" className="text-sm md:text-lg w-12 md:w-auto">성명</label>
           <input onChange={onChange} className={Input} type="text" value={name} name="name" id="name" required />
         </div>
-        <div className="flex items-center justify-center gap-2 md:gap-10 mt-4 px-1 md:px-0">
-          <label htmlFor="nickName" className="text-sm md:text-lg w-20 md:w-auto">닉네임</label>
+        <div className="flex items-center justify-center gap-4 md:gap-10 mt-4 px-1 md:px-0">
+          <label htmlFor="nickName" className="text-sm md:text-lg w-16 md:w-auto">닉네임</label>
           <input onChange={onChange} className={Input} type="text" value={nickName} name="nickName" id="nickName" required />
         </div>
-        <div className="flex items-center gap-2 md:gap-6 justify-center mt-4 px-1 md:px-0">
-          <label htmlFor="password" className="text-sm md:text-lg w-20 md:w-auto">비밀번호</label>
+        <div className="flex items-center gap-4 md:gap-6 justify-center mt-4 px-1 md:px-0">
+          <label htmlFor="password" className="text-sm md:text-lg w-16 md:w-auto">비밀번호</label>
           <input onChange={onChange} className={Input} type="password" value={password} name="password" id="password" required />
         </div>
-        <div className="flex items-center gap-2 md:gap-10 justify-center mt-4 px-1 md:px-0">
-          <label htmlFor="email" className="text-sm md:text-lg w-20 md:w-auto">이메일</label>
+        <div className="flex items-center gap-4 md:gap-10 justify-center mt-4 px-1 md:px-0">
+          <label htmlFor="email" className="text-sm md:text-lg w-16 md:w-auto">이메일</label>
           <input onChange={onChange} className={Input} type="email" value={email} name="email" id="email" required />
         </div>
         {error !== "" ? <span className={Error}>{error}</span> : null}
