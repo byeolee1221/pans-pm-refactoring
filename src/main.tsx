@@ -7,6 +7,6 @@ import { CrispProvider } from "./crisp-provider.tsx";
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <CrispProvider />
-      <App />
+    <App />
   </React.StrictMode>,
 )
