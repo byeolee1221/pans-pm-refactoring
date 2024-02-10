@@ -35,16 +35,6 @@ $ npm install
 $ npm run dev
 ```
 
-## 주요기능별 시퀀스 다이어그램
-* 동아리 가입신청
-![Alt text](/public/registerSequence.png)
-* 판스TALK
-![Alt text](/public/panstalkSequence.png)
-* 계정 관리
-![Alt text](/public/mypageSequence.png)
-* 관리자페이지
-![Alt text](/public/manageSequence.png)
-
 ## 화면 구성
 |메인페이지|소개페이지|
 |:---:|:---:|
@@ -57,6 +47,29 @@ $ npm run dev
 |<img src="/public/mypage.png" width="400" height="400">|<img src="/public/managePage.png" width="400" height="400">|
 |관리자 페이지 대시보드|
 |<img src="/public/manageDashboard.png" width="400" height="400">|
+
+## 주요기능
+### 동아리 가입신청 기능
+* 실제 오프라인 가입원서 양식의 기입요소를 모두 포함한 온라인 가입원서 제공
+* 실시간으로 관리자 대시보드와 상호작용되므로 매 현역기수 관리자에게 편리한 관리환경 제공
+### 판스TALK
+* 동아리에 대해 알아보기 위해 방문한 유저에게 동아리의 분위기를 파악할 수 있도록 함.
+* 웹사이트에 가입한 회원들에게 또다른 소식전달의 공간을 제공
+### 계정 관리
+* 웹사이트에서 활동할 때의 명칭인 닉네임의 변경기능, 비밀번호 변경기능, 계정 삭제기능 제공
+### 관리자 페이지
+* 매 현역기수의 관리자 권한을 받은 회장, 부회장에게 온라인으로 접수된 동아리 가입신청 내용을 편하게 확인할 수 있도록 함.
+* 웹사이트에 가입된 회원 현황을 한눈에 확인할 수 있는 환경 제공 
+
+## 주요기능별 시퀀스 다이어그램
+* 동아리 가입신청
+![Alt text](/public/registerSequence.png)
+* 판스TALK
+![Alt text](/public/panstalkSequence.png)
+* 계정 관리
+![Alt text](/public/mypageSequence.png)
+* 관리자페이지
+![Alt text](/public/manageSequence.png)
 
 ## 기존 웹사이트에서 달라진 점
 * 기존 웹사이트 주소: https://byeolee1221.github.io/
