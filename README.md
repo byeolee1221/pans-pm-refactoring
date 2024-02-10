@@ -51,8 +51,12 @@ $ npm run dev
 |<img src="/public/mainpage.png" width="400" height="400">|<img src="/public/introducePage.png" width="400" height="400">|
 |동아리 가입페이지|판스TALK 페이지|
 |<img src="/public/registerPage.png" width="400" height="400">|<img src="/public/pansTalkPage.png" width="400" height="400">|
+|회원가입 페이지|로그인 페이지|
+|<img src="/public/signupPage.png" width="400" height="400">|<img src="/public/signinPage.png" width="400" height="400">|
 |마이페이지|관리자 페이지|
 |<img src="/public/mypage.png" width="400" height="400">|<img src="/public/managePage.png" width="400" height="400">|
+|관리자 페이지 대시보드|
+|<img src="/public/manageDashboard.png" width="400" height="400">|
 
 ## 기존 웹사이트에서 달라진 점
 * 기존 웹사이트 주소: https://byeolee1221.github.io/
